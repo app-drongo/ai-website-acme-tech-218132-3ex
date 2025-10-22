@@ -19,7 +19,7 @@ const DEFAULT_FOOTER = {
   logoText: 'Acme Tech',
   companyDescription:
     'Empowering businesses with cutting-edge technology solutions. From cloud infrastructure to AI-powered analytics, we help companies scale and innovate in the digital age.',
-  contactEmail: 'hello@acmetech.com',
+  contactEmail: 'contact@drongo.io',
   contactPhone: '+1 (555) 847-2900',
   contactAddress: '2847 Innovation Drive, Tech Hub District',
   newsletterTitle: 'Tech Insights',

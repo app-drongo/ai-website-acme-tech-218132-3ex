@@ -10,9 +10,9 @@ import { useSmartNavigation } from '@/hooks/useSmartNavigation';
 const DEFAULT_NAVBAR = {
   isTransparent: false,
   lightText: false,
-  logoText: 'Acme Tech',
-  signInButton: 'Sign In',
-  signInHref: '/signin',
+  logoText: 'Drongo',
+  signInButton: 'Login',
+  signInHref: 'https://static-site-server.rachid-regti.workers.dev/sites/68f8c6314a795f7018af3f43/signin',
   getStartedButton: 'Get Started',
   getStartedHref: '/signup',
 } as const;
