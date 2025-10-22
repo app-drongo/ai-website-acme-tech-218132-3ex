@@ -7,7 +7,6 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useSmartNavigation } from '@/hooks/useSmartNavigation';
 
-// ✅ FIX: Remove 'as const' to make properties mutable for backend editing
 const DEFAULT_NAVBAR = {
   isTransparent: false,
   lightText: false,
@@ -16,15 +15,7 @@ const DEFAULT_NAVBAR = {
   signInHref: '/signin',
   getStartedButton: 'Get Started',
   getStartedHref: '/signup',
-  navigationItems: [
-    {
-      name: "Home",
-      href: "#hero",
-      textEditableId: "text-nav-home",
-      hrefEditableId: "link-nav-home"
-    }
-  ]
-};  // ✅ REMOVED: 'as const' - now backend can update values
+} as const;
 
 type NavbarProps = Partial<typeof DEFAULT_NAVBAR>;
 
@@ -35,6 +26,7 @@ export default function Navigation(props: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Only track scroll if transparent mode is enabled
   useEffect(() => {
     if (!config.isTransparent) return;
 
@@ -46,16 +38,27 @@ export default function Navigation(props: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [config.isTransparent]);
 
-  const navigation = config.navigationItems;
+  // Navigation items with BOTH text and href editableIds
+  const navigation = [
+  {
+    name: "Home",
+    href: "#hero",
+    textEditableId: "text-nav-home",
+    hrefEditableId: "link-nav-home"
+  }
+];
 
   return (
     <nav
       id="navigation"
       className={cn(
         'sticky top-0 z-50 w-full',
+        // DEFAULT: Normal nav with border and background
         !config.isTransparent && 'border-b bg-background/80 backdrop-blur-md',
+        // TRANSPARENT MODE: Only when isTransparent is true
         config.isTransparent && !isScrolled && 'bg-transparent border-transparent',
         config.isTransparent && isScrolled && 'bg-background/80 backdrop-blur-md border-b',
+        // Smooth transitions when switching states
         'transition-all duration-300'
       )}
     >
@@ -72,6 +75,7 @@ export default function Navigation(props: NavbarProps) {
               <span
                 className={cn(
                   'font-bold text-xl transition-colors',
+                  // Only apply light text in transparent mode when not scrolled
                   config.isTransparent && !isScrolled && config.lightText
                     ? 'text-white'
                     : 'text-foreground'
@@ -92,8 +96,10 @@ export default function Navigation(props: NavbarProps) {
                   data-editable-href={item.hrefEditableId}
                   className={cn(
                     'px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md',
+                    // DEFAULT: Normal text colors
                     (!config.isTransparent || isScrolled) &&
                       'text-muted-foreground hover:text-accent-foreground hover:bg-accent',
+                    // TRANSPARENT MODE: Light text only when transparent and not scrolled
                     config.isTransparent &&
                       !isScrolled &&
                       config.lightText &&
