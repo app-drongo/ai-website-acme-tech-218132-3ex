@@ -8,7 +8,7 @@ import { useSmartNavigation } from '@/hooks/useSmartNavigation';
 
 const DEFAULT_HERO = {
   badge: 'New: AI-Powered Analytics',
-  title: 'Scale your business with',
+  title: 'Augmente your business with',
   titleHighlight: 'intelligent automation',
   description:
     'Transform your operations with our cutting-edge SaaS platform. Built for modern teams who demand performance, security, and seamless integration.',
@@ -18,7 +18,7 @@ const DEFAULT_HERO = {
     'Real-time analytics',
     'API-first architecture',
   ],
-  primaryCTA: 'Start Trial',
+  primaryCTA: 'Start Free Trial',
   secondaryCTA: 'Watch Demo',
   primaryCTAHref: '/',
   secondaryCTAHref: '/',
