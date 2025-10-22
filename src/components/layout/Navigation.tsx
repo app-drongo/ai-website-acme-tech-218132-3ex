@@ -39,14 +39,12 @@ export default function Navigation(props: NavbarProps) {
   }, [config.isTransparent]);
 
   // Navigation items with BOTH text and href editableIds
-  const navigation = [
-  {
-    name: "Home",
+  const navigation = [{
+    name: "Application",
     href: "#hero",
     textEditableId: "text-nav-home",
     hrefEditableId: "link-nav-home"
-  }
-];
+  }];
 
   return (
     <nav
