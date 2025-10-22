@@ -7,6 +7,7 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useSmartNavigation } from '@/hooks/useSmartNavigation';
 
+// ✅ FIX: Define navigation items in DEFAULT_NAVBAR so backend can find them
 const DEFAULT_NAVBAR = {
   isTransparent: false,
   lightText: false,
@@ -15,6 +16,15 @@ const DEFAULT_NAVBAR = {
   signInHref: '/signin',
   getStartedButton: 'Get Started',
   getStartedHref: '/signup',
+  // ✅ NEW: Navigation array as a prop
+  navigationItems: [
+    {
+      name: "Home",
+      href: "#hero",
+      textEditableId: "text-nav-home",
+      hrefEditableId: "link-nav-home"
+    }
+  ]
 } as const;
 
 type NavbarProps = Partial<typeof DEFAULT_NAVBAR>;
@@ -38,15 +48,8 @@ export default function Navigation(props: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [config.isTransparent]);
 
-  // Navigation items with BOTH text and href editableIds
-  const navigation = [
-  {
-    name: "Home",
-    href: "#hero",
-    textEditableId: "text-nav-home",
-    hrefEditableId: "link-nav-home"
-  }
-];
+  // ✅ FIX: Use navigation from config (which includes defaults + overrides)
+  const navigation = config.navigationItems;
 
   return (
     <nav
