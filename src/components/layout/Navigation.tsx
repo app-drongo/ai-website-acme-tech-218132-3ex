@@ -10,7 +10,7 @@ import { useSmartNavigation } from '@/hooks/useSmartNavigation';
 const DEFAULT_NAVBAR = {
   isTransparent: false,
   lightText: false,
-  logoText: 'Drongo',
+  logoText: 'Avempace',
   signInButton: 'Login',
   signInHref: 'https://static-site-server.rachid-regti.workers.dev/sites/68f8c6314a795f7018af3f43/signin',
   getStartedButton: 'Get Started',
@@ -40,7 +40,7 @@ export default function Navigation(props: NavbarProps) {
 
   // Navigation items with BOTH text and href editableIds
   const navigation = [{
-    name: "Hero",
+    name: "Home",
     href: "#hero",
     textEditableId: "text-nav-home",
     hrefEditableId: "link-nav-home"
