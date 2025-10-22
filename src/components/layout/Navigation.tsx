@@ -40,7 +40,7 @@ export default function Navigation(props: NavbarProps) {
 
   // Navigation items with BOTH text and href editableIds
   const navigation = [{
-    name: "Application",
+    name: "Hero",
     href: "#hero",
     textEditableId: "text-nav-home",
     hrefEditableId: "link-nav-home"
