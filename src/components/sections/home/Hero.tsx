@@ -21,7 +21,7 @@ const DEFAULT_HERO = {
   primaryCTA: 'Start Free Trial',
   secondaryCTA: 'Watch Demo',
   primaryCTAHref: '/',
-  secondaryCTAHref: '/',
+  secondaryCTAHref: 'https://docs.google.com/document/d/1u1svaLBePj3qcYc4YZJUMy0lk8JPBdK-nMJsGYqdhC4/edit?tab=t.0',
   imageUrl:
     'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920&auto=format&fit=crop',
   imageAlt: 'Acme Tech dashboard interface',
