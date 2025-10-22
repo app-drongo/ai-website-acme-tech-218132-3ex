@@ -18,7 +18,7 @@ const DEFAULT_HERO = {
     'Real-time analytics',
     'API-first architecture',
   ],
-  primaryCTA: 'Start Free Trial',
+  primaryCTA: 'Start Trial',
   secondaryCTA: 'Watch Demo',
   primaryCTAHref: '/',
   secondaryCTAHref: '/',
